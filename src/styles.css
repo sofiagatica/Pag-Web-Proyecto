@@ -1,1 +1,522 @@
-/* You can add global styles to this file, and also import other style files */
+/* Variables de color para fácil mantenimiento */
+:root {
+    --color-primary: #8C2F2F; /* Rojo oscuro/vino - color tierra */
+    --color-secondary: #E3B23C; /* Dorado/Amarillo - sol/cosecha */
+    --color-dark: #333333;
+    --color-light: #F9F9F9;
+    --color-accent: #6C7A89; /* Gris azulado para acentos */
+}
+
+/* Estilos Globales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.8em;
+    color: var(--color-dark);
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+    color: var(--color-primary);
+    padding-bottom: 0.5em;
+    border-bottom: 3px solid var(--color-secondary);
+    display: inline-block;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DEL HERO CON IMAGEN DE FONDO */
+/* ------------------------------------------------ */
+.hero {
+    /* Utiliza la imagen como fondo */
+   background: url('assets/fondovacas.jpg') no-repeat center center;
+    background-size: cover; 
+    background-position: center 85%; /* Ajuste fino de la posición */
+    color: var(--color-light);
+    padding: 100px 20px; 
+    text-align: center;
+    position: relative;
+    min-height: 400px;
+}
+
+.hero-content {
+    /* Mantiene el fondo oscuro semi-transparente para la legibilidad del texto */
+    background-color: rgba(0, 0, 0, 0.65); 
+    padding: 30px;
+    border-radius: 8px;
+}
+
+/* MODIFICACIONES DEL TÍTULO H1 */
+.hero h1 {
+    font-size: 2.0em; /* Tamaño reducido para una línea */
+    font-family: 'Verdana', sans-serif; /* Último estilo de letra elegido */
+    letter-spacing: -0.5px;
+    font-weight: 900;
+    color: var(--color-light);
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #DDDDDD;
+}
+
+.hero .authors {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Barra de Navegación */
+.navbar {
+    background-color: var(--color-primary);
+    text-align: center;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    color: var(--color-light);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.navbar a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+}
+
+/* Estilo de las Secciones Generales */
+.section {
+    padding: 60px 5%;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.solution-intro {
+    background-color: #f0f0e8; 
+}
+
+/* Grid para las tarjetas de AgroSoft y Estancia del 10 */
+.intro-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.company-card {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--color-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.company-card h3 {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.note-bene {
+    font-style: italic;
+    margin-top: 10px;
+    color: var(--color-accent);
+}
+
+/* --- ESTILOS PARA LOS LOGOS (SOLUCIÓN FINAL) --- */
+/* ESTILOS PARA LOS LOGOS (SOLUCIÓN FINAL) */
+.logo-container {
+    text-align: center; 
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc; 
+}
+
+.intro-grid .company-card .logo { 
+    max-width: 150px !important; /* Aumentado a 120px para que se vean mejor */
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+/* FIN ESTILOS LOGOS */
+/* --- FIN ESTILOS LOGOS --- */
+
+
+/* Problemas y Beneficios */
+.problems-benefits {
+    background-color: var(--color-light);
+}
+
+.container-split {
+    display: flex;
+    gap: 40px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+.list-card {
+    flex: 1;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.list-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.list-card li {
+    background-color: #eeeeee;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-left: 5px solid var(--color-primary);
+    border-radius: 4px;
+}
+
+.benefits-card li {
+    border-left-color: var(--color-secondary); 
+}
+
+
+/* Funcionalidades / Módulos */
+.functionalities {
+    background-color: #f0f0e8;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.module-card {
+    padding: 25px;
+    background-color: var(--color-light);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.module-card h3 {
+    color: var(--color-dark);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* --- Estilos para la Sección de Alta (Formulario) --- */
+
+.system-module {
+    background-color: var(--color-light); 
+}
+
+.system-module .subtitle {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: var(--color-accent);
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.animal-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--color-dark);
+    text-align: left;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: var(--color-secondary);
+    outline: none;
+    box-shadow: 0 0 5px rgba(227, 178, 60, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.full-width {
+    grid-column: 1 / -1; 
+}
+
+/* Contenedor de botones para Alta/Modificar y Limpiar */
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.button-group button {
+    flex: 1; 
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.btn-submit {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+
+.btn-submit:hover {
+    background-color: #6d1f1f;
+    transform: translateY(-2px);
+}
+
+.btn-submit.modifying {
+    background-color: var(--color-secondary); /* Dorado en modo modificación */
+    color: var(--color-dark);
+}
+
+.btn-submit.modifying:hover {
+    background-color: #ce9d34;
+}
+
+.btn-cancel {
+    background-color: var(--color-accent); /* Gris para Limpiar */
+    color: var(--color-light);
+}
+
+.btn-cancel:hover {
+    background-color: #5b6978;
+}
+
+/* --- Estilos para la Sección de Consulta (Tabla) --- */
+
+.query-module {
+    background-color: #f0f0e8;
+}
+
+.table-container {
+    overflow-x: auto; 
+    margin-top: 30px;
+}
+
+.animal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.animal-table thead tr {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    text-align: left;
+}
+
+.animal-table th, 
+.animal-table td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    text-align: center;
+}
+
+.animal-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.animal-table tbody tr:hover {
+    background-color: #e8e8e8;
+    cursor: default;
+}
+
+/* Estilos para los botones de acción (ABMC) */
+.btn-action {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin: 2px;
+    transition: background-color 0.3s;
+}
+
+.btn-action.modify {
+    background-color: var(--color-secondary); 
+    color: var(--color-dark);
+}
+
+.btn-action.delete {
+    background-color: #A93226; 
+    color: var(--color-light);
+}
+
+.btn-action.modify:hover {
+    background-color: #ce9d34;
+}
+
+.btn-action.delete:hover {
+    background-color: #8a2920;
+}
+
+/* Metodología */
+.methodology {
+    background-color: var(--color-light);
+}
+
+.method-steps-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.step-card {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    background-color: #fafafa;
+    position: relative;
+    text-align: left;
+}
+
+.step-card h4 {
+    color: var(--color-primary);
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    border-top: 5px solid var(--color-secondary);
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* Media Queries para Responsive Design (Celulares) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em; /* Ajuste para móviles */
+    }
+
+    .intro-grid, .container-split, .method-steps-grid {
+        flex-direction: column;
+    }
+    
+    .navbar a {
+        display: block;
+        margin: 5px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .animal-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    /* Responsive para la tabla (stack en móviles) */
+    .animal-table thead {
+        display: none;
+    }
+
+    .animal-table, .animal-table tbody, .animal-table tr, .animal-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .animal-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        display: block;
+        padding: 10px 0;
+    }
+
+    .animal-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+    }
+
+    .animal-table td::before {
+        content: attr(data-label); 
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+        color: var(--color-primary);
+    }
+}

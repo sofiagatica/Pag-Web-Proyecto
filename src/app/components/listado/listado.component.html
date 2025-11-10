@@ -1,0 +1,40 @@
+<section id="consulta" class="section query-module">
+    <h2>Simulación: Listado y Consulta de Ganado (ABMC) 🔍</h2>
+    <p class="subtitle">Tabla de visualización de los registros activos en el sistema. Simula las funcionalidades de Consulta (C), Modificación (M) y Baja (B).</p>
+
+    <div class="table-container">
+        <table class="animal-table">
+            <thead>
+                <tr>
+                    <th>N° Caravana</th>
+                    <th>Raza</th>
+                    <th>Fecha Nac.</th>
+                    <th>Peso (kg)</th>
+                    <th>Estado Sanitario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let animal of animales" [attr.data-label]="'Caravana: ' + animal.caravana">
+                    <td data-label="Caravana">{{ animal.caravana }}</td>
+                    <td data-label="Raza">{{ animal.raza }}</td>
+                    <td data-label="Fecha Nac.">{{ animal.fechaNacimiento | date: 'dd/MM/yyyy' }}</td>
+                    <td data-label="Peso (kg)">{{ animal.peso }}</td>
+                    <td data-label="Estado">{{ animal.estado }}</td>
+                    <td data-label="Acciones">
+                        <button class="btn-action modify" (click)="modificar(animal)">Modificar</button>
+                        <button class="btn-action delete" (click)="eliminar(animal.caravana)">Baja</button>
+                    </td>
+                </tr>
+                
+                <!-- Mensaje cuando la lista está vacía -->
+                <tr *ngIf="animales.length === 0">
+                    <td colspan="6" class="text-center empty-row">
+                        No hay animales registrados. Por favor, utiliza el formulario de Alta.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="note-bene">**ABMC:** Esta tabla simula las funciones de Consulta (C) y permite las acciones de Modificar (M) y Baja (B) de los registros.</p>
+</section>

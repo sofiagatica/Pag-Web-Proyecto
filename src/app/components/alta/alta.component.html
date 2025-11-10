@@ -1,0 +1,89 @@
+<section id="sistema" class="section system-module">
+    <h2>Simulación: Módulo de Gestión de Animales (Alta) 📝</h2>
+    <p class="subtitle">Interfaz simplificada para el registro inicial de un nuevo bovino en el sistema AgroSoft.</p>
+    
+    <div class="form-container">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="animal-form">
+        
+        <div class="form-group">
+            <label for="caravana">N° Caravana / Identificación Única:</label>
+            <input 
+                type="text" 
+                id="caravana" 
+                name="caravana" 
+                placeholder="Ej: A-00123"
+                required 
+                #caravana="ngModel"
+                [(ngModel)]="nuevoAnimal.caravana">
+        </div>
+
+        <div class="form-group">
+            <label for="tipo">Tipo de Ganado:</label>
+            <select id="tipo" name="tipo" required [(ngModel)]="nuevoAnimal.tipo">
+                <option value="bovino" selected>Bovino (Vacas y Toros)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="raza">Raza:</label>
+            <input 
+                type="text" 
+                id="raza" 
+                name="raza"
+                required 
+                placeholder="Ej: Aberdeen Angus"
+                [(ngModel)]="nuevoAnimal.raza">
+        </div>
+        
+        <div class="form-group">
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input 
+                type="date" 
+                id="fechaNacimiento" 
+                name="fechaNacimiento"
+                required
+                [(ngModel)]="nuevoAnimal.fechaNacimiento">
+        </div>
+
+        <div class="form-group">
+            <label for="peso">Peso Actual (kg):</label>
+            <input 
+                type="number" 
+                id="peso" 
+                name="peso"
+                required
+                step="0.01"
+                placeholder="Ej: 350.5"
+                [(ngModel)]="nuevoAnimal.peso">
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Estado Sanitario:</label>
+            <select 
+                id="estado" 
+                name="estado"
+                required
+                [(ngModel)]="nuevoAnimal.estado">
+                <option value="Sano">Sano</option>
+                <option value="Vacunación Pendiente">Próxima Vacunación</option>
+                <option value="En Tratamiento">En Tratamiento</option>
+            </select>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="observaciones">Notas/Observaciones (Historial):</label>
+            <textarea 
+                id="observaciones" 
+                name="observaciones"
+                rows="3"
+                placeholder="Comentarios sobre el estado del animal o lote de procedencia."
+                [(ngModel)]="nuevoAnimal.observaciones"></textarea>
+        </div>
+
+        <div class="form-group full-width button-group">
+            <button type="submit" id="btn-alta" [class]="botonClase" [disabled]="f.invalid">{{ botonTexto }}</button>
+            <button type="button" id="btn-reset" class="btn-cancel" (click)="resetFormAndMode(f)">Limpiar Formulario</button>
+        </div>
+        </form>
+    </div>
+</section>
