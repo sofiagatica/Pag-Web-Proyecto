@@ -1,8 +1,8 @@
-<section id="sistema" class="section system-module">
-    <h2>Simulación: Módulo de Gestión de Animales (Alta) 📝</h2>
+<section class="section system-module">
+    <h2 class="slide-in-left">Simulación: Módulo de Gestión de Animales (Alta) 📝</h2>
     <p class="subtitle">Interfaz simplificada para el registro inicial de un nuevo bovino en el sistema AgroSoft.</p>
     
-    <div class="form-container">
+    <div class="form-container slide-in-up">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="animal-form">
         
         <div class="form-group">
@@ -85,5 +85,9 @@
             <button type="button" id="btn-reset" class="btn-cancel" (click)="resetFormAndMode(f)">Limpiar Formulario</button>
         </div>
         </form>
+    </div>
+
+    <div class="info-box slide-in-up">
+        <p>💡 <strong>Tip:</strong> Después de registrar un animal, puedes verlo y gestionarlo en la sección de <a routerLink="/listado">Listado y Consultas</a>.</p>
     </div>
 </section>

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { GanadoService } from '../../services/ganado.service';
 import { Animal } from '../../models/animal';
 import { Subscription } from 'rxjs';
@@ -10,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './alta.component.html',
   styleUrls: ['./alta.component.css'],
   standalone: true, 
-  imports: [FormsModule, CommonModule] 
+  imports: [FormsModule, CommonModule, RouterLink] 
 })
 export class AltaComponent implements OnInit, OnDestroy {
   nuevoAnimal: any = {

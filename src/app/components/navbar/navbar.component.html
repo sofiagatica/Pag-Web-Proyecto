@@ -1,8 +1,9 @@
 <nav class="navbar">
-    <a href="#solucion">Acerca del Proyecto</a>
-    <a href="#problemas">Problemas</a>
-    <a href="#modulos">Funcionalidades</a>
-    <a href="#sistema">Registro</a>
-    <a href="#consulta">Listado y Consultas</a>
-    <a href="#metodologia">Metodología</a>
+    <a routerLink="/inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+    <a routerLink="/registro" routerLinkActive="active">Registro</a>
+    <a routerLink="/listado" routerLinkActive="active">Listado y Consultas</a>
+    <a routerLink="/inicio" fragment="solucion">Acerca del Proyecto</a>
+    <a routerLink="/inicio" fragment="problemas">Problemas</a>
+    <a routerLink="/inicio" fragment="modulos">Funcionalidades</a>
+    <a routerLink="/inicio" fragment="metodologia">Metodología</a>
 </nav>

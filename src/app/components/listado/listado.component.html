@@ -1,8 +1,18 @@
-<section id="consulta" class="section query-module">
-    <h2>Simulación: Listado y Consulta de Ganado (ABMC) 🔍</h2>
+<section class="section query-module">
+    <h2 class="slide-in-right">Simulación: Listado y Consulta de Ganado (ABMC) 🔍</h2>
     <p class="subtitle">Tabla de visualización de los registros activos en el sistema. Simula las funcionalidades de Consulta (C), Modificación (M) y Baja (B).</p>
 
-    <div class="table-container">
+    <div class="search-container slide-in-up">
+        <input 
+            type="text" 
+            class="search-input" 
+            placeholder="🔍 Buscar por caravana, raza o estado..."
+            [(ngModel)]="terminoBusqueda"
+            (input)="filtrarAnimales()">
+        <button class="btn-clear-search" (click)="limpiarBusqueda()">Limpiar</button>
+    </div>
+
+    <div class="table-container slide-in-up">
         <table class="animal-table">
             <thead>
                 <tr>
@@ -15,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let animal of animales" [attr.data-label]="'Caravana: ' + animal.caravana">
+                <tr *ngFor="let animal of animalesFiltrados" [attr.data-label]="'Caravana: ' + animal.caravana">
                     <td data-label="Caravana">{{ animal.caravana }}</td>
                     <td data-label="Raza">{{ animal.raza }}</td>
                     <td data-label="Fecha Nac.">{{ animal.fechaNacimiento | date: 'dd/MM/yyyy' }}</td>
@@ -28,13 +38,17 @@
                 </tr>
                 
                 <!-- Mensaje cuando la lista está vacía -->
-                <tr *ngIf="animales.length === 0">
+                <tr *ngIf="animalesFiltrados.length === 0">
                     <td colspan="6" class="text-center empty-row">
-                        No hay animales registrados. Por favor, utiliza el formulario de Alta.
+                        <p style="font-size: 1.2em; margin-bottom: 10px;">No se encontraron animales registrados.</p>
+                        <a routerLink="/registro" style="color: var(--color-secondary); text-decoration: none; font-weight: bold;">Registrar primer animal</a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <p class="note-bene">**ABMC:** Esta tabla simula las funciones de Consulta (C) y permite las acciones de Modificar (M) y Baja (B) de los registros.</p>
+    <div class="info-box slide-in-up">
+        <p>📋 <strong>ABMC:</strong> Esta tabla simula las funciones de Consulta (C) y permite las acciones de Modificar (M) y Baja (B) de los registros.</p>
+        <p>💡 <strong>Tip:</strong> Puedes buscar animales usando el campo de búsqueda arriba. Para registrar un nuevo animal, ve a la sección de <a routerLink="/registro">Registro</a>.</p>
+    </div>
 </section>
