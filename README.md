@@ -16,7 +16,6 @@ La aplicación está diseñada con la arquitectura **Standalone Components de An
 |------------------|----------------------------------|
 | **Frontend**     | Angular (Standalone Components)  |
 | **Lenguaje**     | TypeScript                       |
-| **Gestión de Datos** | RxJS (BehaviorSubject)        |
 | **Despliegue**   | Vercel                           |
 
 ---
@@ -87,6 +86,7 @@ La aplicación se ejecutará en **http://localhost:4200/**.
 
 **Alumna:** Gatica Nahara Sofía  
 **Ciclo Lectivo:** 2025
+
 
 
 
